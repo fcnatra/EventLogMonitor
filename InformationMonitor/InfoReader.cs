@@ -1,7 +1,7 @@
 ﻿
 namespace InformationMonitor;
 
-public class InfoReader
+public class InfoReader : IInfoReader
 {
     private IInformationProxy eventLogProxy;
 
@@ -10,7 +10,7 @@ public class InfoReader
         this.eventLogProxy = eventLogProxy;
     }
 
-    public List<Info> GetEventsFrom(DateTime moment)
+    public List<Info> GetInformationSince(DateTime moment)
     {
         List<Info> entries;
 

@@ -29,7 +29,7 @@ public class GivenReader
         var TenSeconds = new TimeSpan(0, 0, 15);
 
         // When
-        var eventList = this.reader.GetEventsFrom(DateTime.Now.Subtract(TenSeconds));
+        var eventList = this.reader.GetInformationSince(DateTime.Now.Subtract(TenSeconds));
 
         // Then
         Assert.Empty(eventList);
@@ -49,7 +49,7 @@ public class GivenReader
         );
 
         // When
-        IEnumerable<Info> eventList = this.reader.GetEventsFrom(DateTime.Now.Subtract(TenSeconds)).ToList();
+        IEnumerable<Info> eventList = this.reader.GetInformationSince(DateTime.Now.Subtract(TenSeconds)).ToList();
 
         // Then
         Assert.Empty(eventList);
@@ -68,7 +68,7 @@ public class GivenReader
         );
 
         // When
-        List<Info> eventList = reader.GetEventsFrom(NowMinus(TenMinutes)).ToList();
+        List<Info> eventList = reader.GetInformationSince(NowMinus(TenMinutes)).ToList();
 
         // Then
         Assert.DoesNotContain(eventList, (e) => e.Level == Definitions.ReportedLevel.Normal);
@@ -82,7 +82,7 @@ public class GivenReader
         A.CallTo(() => fakeEventLogProxy.GetAllEventsSince(A<DateTime>._)).Throws<Exception>();
 
         // When
-        List<Info> eventList = reader.GetEventsFrom(NowMinus(OneMinute)).ToList();
+        List<Info> eventList = reader.GetInformationSince(NowMinus(OneMinute)).ToList();
 
         // Then
         Assert.Empty(eventList);
