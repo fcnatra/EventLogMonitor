@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EventLogMonitor\EventLogMonitor.csproj" />
+    <ProjectReference Include="..\InformationMonitor\InformationMonitor.csproj" />
   </ItemGroup>
 
 </Project>

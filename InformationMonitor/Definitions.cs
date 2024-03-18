@@ -1,4 +1,4 @@
-namespace EventLogMonitor;
+namespace InformationMonitor;
 
 public class Definitions
 {

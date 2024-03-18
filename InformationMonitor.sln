@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventLogMonitor", "EventLogMonitor\EventLogMonitor.csproj", "{A4789624-4FD5-474B-B544-B59823EE8069}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InformationMonitor", "InformationMonitor\InformationMonitor.csproj", "{A4789624-4FD5-474B-B544-B59823EE8069}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{A1CC1F84-9655-4CCA-8C92-2B1978413913}"
 EndProject
