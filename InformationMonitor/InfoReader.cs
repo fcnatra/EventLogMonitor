@@ -3,11 +3,11 @@ namespace InformationMonitor;
 
 public class InfoReader : IInfoReader
 {
-    private IInformationProxy eventLogProxy;
+    private IInformationSourceProxy sourceProxy;
 
-    public InfoReader(IInformationProxy eventLogProxy)
+    public InfoReader(IInformationSourceProxy informationSourceProxy)
     {
-        this.eventLogProxy = eventLogProxy;
+        this.sourceProxy = informationSourceProxy;
     }
 
     public List<Info> GetInformationSince(DateTime moment)
@@ -19,7 +19,7 @@ public class InfoReader : IInfoReader
 
         try
         {
-            entries = this.eventLogProxy
+            entries = this.sourceProxy
                 .GetAllEventsSince(moment)
                 .Where(e => e.Level != Definitions.ReportedLevel.Normal)
                 .ToList();            

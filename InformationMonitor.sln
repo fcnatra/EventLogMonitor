@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InformationMonitor", "Infor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{A1CC1F84-9655-4CCA-8C92-2B1978413913}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitorInformationSources", "MonitorInformationSources\MonitorInformationSources.csproj", "{C1A94253-7F76-4344-BEF8-B0D512F8E775}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{A1CC1F84-9655-4CCA-8C92-2B1978413913}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1CC1F84-9655-4CCA-8C92-2B1978413913}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1CC1F84-9655-4CCA-8C92-2B1978413913}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1A94253-7F76-4344-BEF8-B0D512F8E775}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1A94253-7F76-4344-BEF8-B0D512F8E775}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1A94253-7F76-4344-BEF8-B0D512F8E775}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1A94253-7F76-4344-BEF8-B0D512F8E775}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

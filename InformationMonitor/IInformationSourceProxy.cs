@@ -1,7 +1,7 @@
 
 namespace InformationMonitor;
 
-public interface IInformationProxy
+public interface IInformationSourceProxy
 {
     List<Info> GetAllEventsSince(DateTime moment);
 }

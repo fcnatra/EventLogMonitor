@@ -1,5 +1,6 @@
 using InformationMonitor;
 using FakeItEasy;
+using System.Diagnostics;
 
 namespace Tests;
 
@@ -13,7 +14,7 @@ public class GivenController
     {
         fakeInfoReader = A.Fake<IInfoReader>();
         fakeDispatcher = A.Fake<IInfoDispatcher>();
-        infoController = new();
+        infoController = new(fakeInfoReader, fakeDispatcher);
     }
 
     [Fact]
@@ -23,7 +24,7 @@ public class GivenController
         // --
 
         // When
-        infoController.MonitorLastTenMinutes(fakeInfoReader, fakeDispatcher);
+        infoController.MonitorLastTenMinutes();
 
         // Then
         A.CallTo(() => fakeInfoReader.GetInformationSince(A<DateTime>._)).MustHaveHappenedOnceExactly();
@@ -37,7 +38,7 @@ public class GivenController
         //..
 
         // When
-        infoController.MonitorEverySecond(fakeInfoReader, fakeDispatcher);
+        infoController.MonitorEverySecond();
 
         // Then
         Thread.Sleep(1500);
@@ -56,7 +57,7 @@ public class GivenController
             .Returns(infoEntries);
 
         // When
-        infoController.MonitorEverySecond(fakeInfoReader, fakeDispatcher);
+        infoController.MonitorEverySecond();
 
         // Then
         Thread.Sleep(2500);
@@ -70,10 +71,13 @@ public class GivenController
     {
         // Given
         List<Info> infoEntries = [new Info { Level = Definitions.ReportedLevel.Warning, Moment = DateTime.Now }];
-        infoController.MonitorEverySecond(fakeInfoReader, fakeDispatcher);
+        infoController.MonitorEverySecond();
 
-        // When && Then
-        Assert.Throws<InvalidOperationException>(() => infoController.MonitorEverySecond(fakeInfoReader, fakeDispatcher));
+        // When
+        void action() => infoController.MonitorEverySecond();
+
+        // Then
+        Assert.Throws<InvalidOperationException>(action);
         infoController.Stop();
     }
     
@@ -83,15 +87,21 @@ public class GivenController
         // Given
         List<Info> infoEntries = [new Info { Level = Definitions.ReportedLevel.Warning, Moment = DateTime.Now }];
 
+        A.CallTo(() => fakeInfoReader.GetInformationSince(A<DateTime>._)).Invokes(() => {
+            Trace.WriteLine("First time calling the READER ~~~~~~~~~~~~~~~~~~");
+        });
+
+        infoController.MonitorEverySecond();
+        Thread.Sleep(100);
+
         // When
-        infoController.MonitorEverySecond(fakeInfoReader, fakeDispatcher);
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
+        infoController.Reader = null; // Force Exception
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 
         // Then
-        Thread.Sleep(100);
-        A.CallTo(() => fakeInfoReader.GetInformationSince(A<DateTime>._)).Throws<NullReferenceException>();
         Thread.Sleep(2000);
-
-        A.CallTo(() => fakeDispatcher.Dispatch(A<List<Info>>.That.IsSameAs(infoEntries))).MustHaveHappenedOnceExactly();
+        A.CallTo(() => fakeDispatcher.Dispatch(A<List<Info>>._)).MustHaveHappenedOnceExactly();
         Assert.False(infoController.IsContinuousMonitoringRunning);
     }
 }
