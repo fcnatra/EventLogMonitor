@@ -5,7 +5,7 @@ namespace Tests;
 
 public class GivenReader
 {
-    private IInformationProxy fakeEventLogProxy;
+    private IInformationSourceProxy fakeEventLogProxy;
     private InfoReader reader;
     private DateTime NowMinus(TimeSpan timeSpan) => DateTime.Now.Subtract(timeSpan);
     private readonly TimeSpan TenMinutes = new TimeSpan(0, 10, 0);
@@ -18,7 +18,7 @@ public class GivenReader
 
     public GivenReader()
     {
-        this.fakeEventLogProxy = A.Fake<IInformationProxy>();
+        this.fakeEventLogProxy = A.Fake<IInformationSourceProxy>();
         this.reader = new(fakeEventLogProxy);
     }
 

@@ -1,0 +1,1 @@
+dotnet run --project .\MonitorInformationSources\MonitorInformationSources.csproj -- %1
