@@ -3,23 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InformationMonitor", "InformationMonitor\InformationMonitor.csproj", "{A4789624-4FD5-474B-B544-B59823EE8069}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InformationMonitor", "InformationMonitor\InformationMonitor.csproj", "{A4789624-4FD5-474B-B544-B59823EE8069}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{A1CC1F84-9655-4CCA-8C92-2B1978413913}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{A1CC1F84-9655-4CCA-8C92-2B1978413913}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitorInformationSources", "MonitorInformationSources\MonitorInformationSources.csproj", "{C1A94253-7F76-4344-BEF8-B0D512F8E775}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitorInformationSources", "MonitorInformationSources\MonitorInformationSources.csproj", "{C1A94253-7F76-4344-BEF8-B0D512F8E775}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventLogInformationSource", "EventLogInformationSource\EventLogInformationSource.csproj", "{C047DB9C-D816-43A9-929D-EB51A61D5D38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventLogInformationSource", "EventLogInformationSource\EventLogInformationSource.csproj", "{C047DB9C-D816-43A9-929D-EB51A61D5D38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunningProcessesInformationSource", "RunningProcessesInformationSource\RunningProcessesInformationSource.csproj", "{AB0BD40B-982B-4433-BF6C-FC3435142958}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunningProcessesInformationSource", "RunningProcessesInformationSource\RunningProcessesInformationSource.csproj", "{AB0BD40B-982B-4433-BF6C-FC3435142958}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InformationSources", "InformationSources", "{9B0EFFF1-52EE-4012-884C-BAFC90D3E40C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A4789624-4FD5-474B-B544-B59823EE8069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -42,5 +41,12 @@ Global
 		{AB0BD40B-982B-4433-BF6C-FC3435142958}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB0BD40B-982B-4433-BF6C-FC3435142958}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB0BD40B-982B-4433-BF6C-FC3435142958}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C047DB9C-D816-43A9-929D-EB51A61D5D38} = {9B0EFFF1-52EE-4012-884C-BAFC90D3E40C}
+		{AB0BD40B-982B-4433-BF6C-FC3435142958} = {9B0EFFF1-52EE-4012-884C-BAFC90D3E40C}
 	EndGlobalSection
 EndGlobal
